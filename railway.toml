@@ -1,5 +1,6 @@
 [build]
-builder = "heroku/buildpacks:20"
+# Jangan tulis builder lama, langsung kosongin aja
+nixpacksPlan = true
 
 [env]
 PORT = "8080"
