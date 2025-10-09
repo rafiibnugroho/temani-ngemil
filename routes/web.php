@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ReservationController;
+use Illuminate\Support\Facades\Artisan;
 
 // Homepage
 Route::get('/', [MenuController::class, 'index'])->name('home');
@@ -21,9 +22,7 @@ Route::delete('/cart/clear', [MenuController::class, 'clearCart'])->name('cart.c
 Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
 Route::get('/reservation/{reservation}', [ReservationController::class, 'show'])->name('reservation.show');
 
-Route::get('/clear-cache', function () {
-    \Illuminate\Support\Facades\Artisan::call('view:clear');
-    \Illuminate\Support\Facades\Artisan::call('cache:clear');
-    \Illuminate\Support\Facades\Artisan::call('config:clear');
-    return "Cache & Config cleared!";
+Route::get('/run-seed', function () {
+    Artisan::call('db:seed');
+    return "✅ Seeder berhasil dijalankan!";
 });

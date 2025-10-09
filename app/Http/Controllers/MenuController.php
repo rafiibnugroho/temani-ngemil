@@ -11,8 +11,6 @@ class MenuController extends Controller
     {
         // Ambil semua menu yang tersedia
         $allMenus = \App\Models\Menu::all();
-    dd($allMenus);
-
 
         // Ambil 8 menu pertama
         $initialMenus = $allMenus->take(8);

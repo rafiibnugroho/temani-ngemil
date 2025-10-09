@@ -106,7 +106,6 @@
         <p>Nikmati beragam pilihan lezat dari Temani Ngemil</p>
 
         <div class="row">
-            {{ dd($initialMenus) }}
             @forelse($initialMenus as $menu)
             <div class="menu-card" data-id="{{ $menu->id }}">
                 <img src="{{ asset($menu->image) }}" alt="{{ $menu->name }}" class="menu-card-img" />
