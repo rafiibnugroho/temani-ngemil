@@ -10,7 +10,8 @@ class MenuController extends Controller
     public function index()
     {
         // Ambil semua menu yang tersedia
-        $allMenus = Menu::where('is_available', true)->get();
+        $allMenus = Menu::all();
+
 
         // Ambil 8 menu pertama
         $initialMenus = $allMenus->take(8);
