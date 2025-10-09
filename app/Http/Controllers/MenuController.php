@@ -10,7 +10,8 @@ class MenuController extends Controller
     public function index()
     {
         // Ambil semua menu yang tersedia
-        $allMenus = Menu::all();
+        $allMenus = \App\Models\Menu::all();
+    dd($allMenus);
 
 
         // Ambil 8 menu pertama
