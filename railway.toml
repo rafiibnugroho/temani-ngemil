@@ -1,6 +1,5 @@
 [build]
-# Jangan tulis builder lama, langsung kosongin aja
-nixpacksPlan = true
+nixpacksPlan = { enabled = true }
 
 [env]
 PORT = "8080"
