@@ -1313,12 +1313,13 @@ footer .credit a {
     transform: translateY(-2px);
 }
 
-/* Responsive Styles */
+/* 🌟 FINAL RESPONSIVE STYLES (MAX-WIDTH: 768PX) */
 @media (max-width: 768px) {
     html {
         font-size: 85%;
     }
 
+    /* === NAVBAR & MENU === */
     #hamburger-menu {
         display: inline-block;
     }
@@ -1331,7 +1332,11 @@ footer .credit a {
         width: 25rem;
         height: 100vh;
         transition: 0.4s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        padding-top: 2rem;
     }
+
     .navbar .navbar-nav.active {
         right: 0;
     }
@@ -1339,20 +1344,26 @@ footer .credit a {
     .navbar .navbar-nav a {
         color: var(--primary);
         display: block;
-        margin: 1.5rem;
+        margin: 1.2rem;
         padding: 0.5rem;
-        font-size: 2rem;
+        font-size: 1.8rem;
+        text-align: left;
     }
 
     .navbar .navbar-nav a::after {
         transform-origin: 0 0;
     }
 
+    .navbar .navbar-nav a:hover::after {
+        transform: scaleX(0.2);
+    }
+
+    /* === SHOPPING CART === */
     .shopping-cart {
         position: fixed;
         top: 0;
-        right: -100%; /* sembunyi dulu */
-        width: 85%; /* jangan full, biar seperti drawer */
+        right: -100%;
+        width: 85%;
         max-width: 400px;
         height: 100vh;
         background: #fff;
@@ -1364,28 +1375,27 @@ footer .credit a {
     }
 
     .shopping-cart.active {
-        right: 0; /* muncul */
+        right: 0;
     }
+
     .shopping-cart .close-cart-btn {
         position: absolute;
-        top: 2.5rem; /* Sedikit lebih kecil agar lebih rapi */
-        right: 23rem; /* UBAH: Nilai ini harus kecil agar tetap di sudut */
-        color: #fff;
-        font-size: 1.5rem;
+        top: 1rem;
+        right: 1rem;
+        color: #333;
+        font-size: 1.8rem;
         cursor: pointer;
         z-index: 1001;
         display: block;
     }
+
     .close-cart-btn {
-        display: block;
         text-align: right;
         margin-bottom: 1rem;
         font-size: 1.5rem;
     }
 
-    .navbar .navbar-nav a:hover::after {
-        transform: scaleX(0.2);
-    }
+    /* === OVERLAY === */
     .overlay {
         position: fixed;
         top: 0;
@@ -1394,52 +1404,48 @@ footer .credit a {
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
         display: none;
-        z-index: 999; /* di bawah navbar/cart */
+        z-index: 999;
     }
 
     .overlay.active {
         display: block;
     }
 
+    /* === ABOUT SECTION === */
     .about .row {
         flex-direction: column;
         text-align: center;
-        /* PENTING: Hapus margin atau padding horizontal yang tidak perlu dari row */
         padding: 0 1rem;
-        gap: 0; /* Pastikan tidak ada gap berlebihan jika menggunakan flex */
+        gap: 0;
     }
 
     .about .row .about-img {
-        /* Kontainer gambar logo */
-        margin-bottom: 0.5rem; /* Kurangi jarak di bawah gambar */
+        margin-bottom: 0.5rem;
         padding: 0;
     }
 
     .about .row .about-img img {
-        margin: 0 auto;
-        max-width: 250px; /* Jaga ukuran gambar agar tidak terlalu besar */
-        /* Hapus margin atas/bawah yang berlebihan di sini jika ada di CSS global */
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin: 1rem auto;
+        max-width: 250px;
     }
 
     .about .row .content {
         order: 2;
-        /* FOKUS DI SINI: Kurangi margin-top yang membuat jaraknya jauh */
-        margin-top: 0.5rem; /* Turunkan dari 0.1rem atau hilangkan sama sekali */
-        padding: 0 0.5rem; /* Tambahkan sedikit padding samping */
-        text-align: center; /* Sesuaikan perataan teks */
+        margin-top: 0.5rem;
+        padding: 0 0.5rem;
+        text-align: center;
     }
 
     .about .row .content h3 {
-        margin-top: 0; /* Hapus margin atas pada H3 */
-        margin-bottom: 0.5rem; /* Kurangi jarak di bawah H3 */
+        margin-top: 0;
+        margin-bottom: 0.5rem;
     }
 
     .about .row .content p {
-        margin-top: 0; /* Hapus margin atas pada paragraf */
+        margin-top: 0;
     }
 
+    /* === CONTACT & GOFOOD === */
     .contact .row {
         flex-direction: column;
     }
@@ -1448,18 +1454,79 @@ footer .credit a {
         flex-direction: column;
         text-align: center;
     }
+
+    /* === RESERVATION MODAL === */
     .reservation-layout {
-        flex-direction: column; /* Ubah tata letak menjadi vertikal */
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .reservation-form-column,
+    .reservation-summary-column {
+        padding: 1.2rem;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .reservation-form-column h4,
+    .reservation-summary-column h4 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        text-align: center !important;
+        font-weight: 600;
     }
 
     .reservation-summary-column {
-        border-left: none; /* Hapus garis pemisah */
-        padding-left: 0;
-        margin-top: 2rem; /* Beri jarak dari form */
+        margin-top: 0.5rem;
     }
 
-    .reservation-summary-column h4 {
-        text-align: left !important; /* Kembalikan perataan ke kiri */
+    .reservation-total {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        padding-top: 0.7rem;
+        border-top: 1px solid #ddd;
+        text-align: center;
+    }
+
+    /* === FORM INPUT === */
+    .form-group input,
+    .form-group textarea {
+        border-radius: 8px;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        transition: 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: #ff6200;
+        box-shadow: 0 0 0 3px rgba(255, 98, 0, 0.2);
+        outline: none;
+    }
+
+    /* === SUBMIT BUTTON === */
+    .submit-reservation-btn {
+        width: 100%;
+        margin-top: 1rem;
+        padding: 0.9rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: none;
+        background: linear-gradient(135deg, #ff6200, #ff8c42);
+        color: #fff;
+        font-weight: 600;
+        transition: 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .submit-reservation-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(255, 98, 0, 0.3);
     }
 }
 
