@@ -290,6 +290,16 @@
         feather.replace();
     </script>
     <script src="{{ asset('js/script.js') }}"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const loader = document.getElementById("loading");
+        if (loader) {
+            loader.style.display = "none";
+        }
+    });
+</script>
+
+
     <script>
         const hamburger = document.getElementById("hamburger-menu");
 const navMenu = document.querySelector(".navbar .navbar-nav");
