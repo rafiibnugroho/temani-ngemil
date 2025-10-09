@@ -2,7 +2,6 @@
 nixpacksPlan = { enabled = true }
 
 [env]
-PORT = "8080"
-
-[deploy]
-startCommand = "php artisan serve --host=0.0.0.0 --port=${PORT}"
+APP_ENV = "production"
+APP_DEBUG = "false"
+APP_URL = "https://temani-ngemil-production.up.railway.app"
