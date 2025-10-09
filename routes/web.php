@@ -7,11 +7,7 @@ use App\Http\Controllers\ReservationController;
 // Homepage
 Route::get('/', [MenuController::class, 'index'])->name('home');
 
-Route::get('/clear-cache', function () {
-    \Illuminate\Support\Facades\Artisan::call('view:clear');
-    \Illuminate\Support\Facades\Artisan::call('cache:clear');
-    return "Cache cleared!";
-});
+
 
 // Menu routes
 Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
@@ -24,3 +20,10 @@ Route::delete('/cart/clear', [MenuController::class, 'clearCart'])->name('cart.c
 // Reservation routes
 Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
 Route::get('/reservation/{reservation}', [ReservationController::class, 'show'])->name('reservation.show');
+
+Route::get('/clear-cache', function () {
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    return "Cache & Config cleared!";
+});
