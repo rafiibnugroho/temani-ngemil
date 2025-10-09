@@ -7,6 +7,12 @@ use App\Http\Controllers\ReservationController;
 // Homepage
 Route::get('/', [MenuController::class, 'index'])->name('home');
 
+Route::get('/clear-cache', function () {
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    return "Cache cleared!";
+});
+
 // Menu routes
 Route::get('/menu/{id}', [MenuController::class, 'show'])->name('menu.show');
 Route::post('/cart/add', [MenuController::class, 'addToCart'])->name('cart.add');
